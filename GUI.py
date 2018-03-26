@@ -9,15 +9,7 @@ class MyPopup(QtGui.QWidget):
         QtGui.QWidget.__init__(self)
 
     def paintEvent(self, e):
-        window = QtGui.QMainWindow()
-        window.setGeometry(0, 0, 400, 200)
-
-        pic = QtGui.QLabel(window)
-        pic.setGeometry(10, 10, 400, 100)
-        #use full ABSOLUTE path to the image, not relative
-        pic.setPixmap(QtGui.QPixmap(os.getcwd() + "/images/image20.jpg"))
-
-        window.show()
+        pass
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow, QtGui.QWidget):
 
@@ -48,10 +40,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, QtGui.QWidget):
         self.w = MyPopup()
         # self.w.setGeometry(QtCore.QRect(100, 100, 400, 200))
         self.w.setWindowTitle("Output Image")
-        label = QtGui.QLabel(w)
-        pixmap = QtGui.QPixmap(os.getcwd() + 'images/image20.jpg')
+        label = QtGui.QLabel(self.w)
+        pixmap = QtGui.QPixmap("/home/vernwalrahul/my_project/Open Soft/images/image20.jpg")
         label.setPixmap(pixmap)
-        w.resize(pixmap.width(),pixmap.height())
+        label.show()
+        self.w.resize(pixmap.width(),pixmap.height())
         self.w.show()
 
 
